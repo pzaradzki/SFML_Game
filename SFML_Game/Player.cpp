@@ -4,6 +4,7 @@ Player::Player(sf::Texture* texture) : Entity(texture)
 {
 	jumpSpeed = 0;
 	inJump = true;
+	health = 100;
 	setPosition(800 / 2, 600 - getGlobalBounds().height - 200);
 }
 
@@ -30,13 +31,23 @@ void Player::update(float deltaTime)
 	}
 }
 
+bool Player::checkCollide(sf::FloatRect& object)
+{
+	return getGlobalBounds().intersects(object);
+}
+
+bool Player::checkCollide(sf::FloatRect&& object)
+{
+	return getGlobalBounds().intersects(object);
+}
+
 void Player::jump()
 {
 	inJump = true;
 	jumpSpeed = -9.f;
 }
 
-void Player::updateJump(float elapsedTime, sf::RectangleShape collider)
+void Player::updateJump(float elapsedTime, sf::RectangleShape& collider)
 {
 	if (inJump)
 	{

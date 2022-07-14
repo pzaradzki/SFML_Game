@@ -14,6 +14,10 @@ public:
 	sf::Texture enemyTexture;
 	sf::Texture playerTexture;
 
+	sf::Font font;
+	sf::Text score;
+	int actualScore;
+
 	Player* player;
 	std::list<Enemy> enemies;
 
