@@ -144,12 +144,6 @@
     <ClCompile Include="SplashscreenState.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Images\background.png" />
-    <Image Include="Images\ball.png" />
-    <Image Include="Images\btn_Start.png" />
-    <Image Include="Images\test.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
@@ -158,6 +152,17 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayingState.h" />
     <ClInclude Include="SplashscreenState.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Images\background.png" />
+    <Image Include="Images\ball.png" />
+    <Image Include="Images\banana.png" />
+    <Image Include="Images\btnStart.png" />
+    <Image Include="Images\enemy.png" />
+    <Image Include="Images\enemy2.png" />
+    <Image Include="Images\jarmo.png" />
+    <Image Include="Images\test.png" />
+    <Image Include="Images\title.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

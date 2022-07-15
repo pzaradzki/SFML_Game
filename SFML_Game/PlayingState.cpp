@@ -7,6 +7,13 @@ PlayingState::PlayingState(sf::RenderWindow* window)
 	enemyTexture.loadFromFile("Images/banana.png");
 	playerTexture.loadFromFile("Images/jarmo.png");
 	font.loadFromFile("Fonts/Atarian/SF Atarian System.ttf");
+	
+	collectSoundBuffer.loadFromFile("Sounds/collect.wav");
+	collectSound.setBuffer(collectSoundBuffer);
+
+	backgroundMusic.openFromFile("Sounds/crime.wav");
+	backgroundMusic.setLoop(true);
+	backgroundMusic.setVolume(50.0f);
 
 	actualScore = 0;
 	score.setFont(font);
@@ -36,6 +43,10 @@ void PlayingState::handleInput(sf::Event* event)
 
 void PlayingState::update(float elapsedTime)
 {
+	// Start music
+	if (backgroundMusic.getStatus() != sf::SoundSource::Playing)
+		backgroundMusic.play();
+
 	// Updates player position while moving
 	player->update(elapsedTime);
 
@@ -63,6 +74,7 @@ void PlayingState::update(float elapsedTime)
 
 			if (player->checkCollide(enemy.getGlobalBounds()))
 			{
+				collectSound.play();
 				actualScore += 1;
 				if (iter != enemies.end())
 					enemies.erase(iter);

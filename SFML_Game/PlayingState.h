@@ -14,6 +14,11 @@ public:
 	sf::Texture enemyTexture;
 	sf::Texture playerTexture;
 
+	sf::SoundBuffer collectSoundBuffer;
+	sf::Sound collectSound;
+
+	sf::Music backgroundMusic;
+
 	sf::Font font;
 	sf::Text score;
 	int actualScore;
